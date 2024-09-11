@@ -12,8 +12,8 @@ En el nuevo rar encontrarás nuevos añadidos y actualizaciones del proyecto:
   2. Crear grupos, publicaciones dentro de los grupos, añadir miembros (Ya no es un view select box)
 
 ## Proximas actualizaciones
--Se implementará el chat
--Proximos cambios en el navbar
--Notificaciones
--Correciones en el navbar
--Los posts del grupo se podrá subir imagenes
+- Se implementará el chat
+- Proximos cambios en el navbar
+- Notificaciones
+- Correciones en el navbar
+- Los posts del grupo se podrá subir imagenes
