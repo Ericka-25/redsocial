@@ -1,0 +1,92 @@
+/* Estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Fondo general */
+body {
+    background-color: #3E2723; /* Fondo marrón oscuro */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Estilos para los enlaces de navegación */
+.navbar {
+    background-color: #795548; /* Fondo marrón mediano */
+}
+
+.navbar-brand {
+    color: #FFFFFF; /* Texto blanco para el nombre de la marca */
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #FFFFFF; /* Texto blanco para los enlaces */
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FFD54F; /* Color amarillo claro al pasar el mouse sobre los enlaces */
+}
+
+/* Estilos para el botón */
+.btn {
+    background-color: #6D4C41; /* Color marrón claro para los botones */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px; /* Curva en los bordes del botón */
+    border: none;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #5D4037; /* Un marrón un poco más oscuro al pasar el mouse */
+    color: #FFD54F; /* Texto amarillo claro al pasar el mouse */
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #4E342E; /* Fondo marrón oscuro para los contenedores */
+    border-radius: 10px; /* Curvatura en los bordes */
+    padding: 20px;
+    margin-top: 20px;
+    color: #FFFFFF; /* Texto blanco dentro del contenedor */
+}
+
+/* Estilos para los alertas */
+.alert {
+    border-radius: 8px; /* Bordes redondeados en los mensajes */
+}
+
+/* Estilos para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #6D4C41; /* Bordes marrones */
+    text-align: left;
+}
+
+table th {
+    background-color: #5D4037; /* Encabezado de la tabla marrón oscuro */
+    color: #FFD54F; /* Texto amarillo claro */
+}
+
+table td {
+    background-color: #3E2723; /* Filas de la tabla con fondo marrón oscuro */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #5D4037;
+    color: #FFD54F;
+}

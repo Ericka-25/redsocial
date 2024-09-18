@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <div class="position-relative">
+        {% if perfil.foto_portada %}
+            <img src="{{ perfil.foto_portada.url }}" alt="Foto de portada" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
+        {% else %}
+            <img src="{% static 'default-cover.png' %}" alt="Foto de portada" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
+        {% endif %}
+
+        <div class="position-absolute" style="bottom: -50px; left: 50%; transform: translateX(-50%);">
+            {% if perfil.foto_perfil %}
+                <img src="{{ perfil.foto_perfil.url }}" alt="Foto de perfil" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover; border: 5px solid white;">
+            {% else %}
+                <img src="{% static 'default-profile.png' %}" alt="Foto de perfil" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover; border: 5px solid white;">
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h2>{{ perfil.usuario.nombre_usuario }}</h2>
+        {% if es_propietario %}
+            <a href="{% url 'editar_perfil' %}" class="btn btn-warning">Editar Perfil</a>
+        {% else %}
+            {% if not solicitud_enviada %}
+                {% if not es_amigo %}
+                    <form method="post" action="{% url 'enviar_solicitud' usuario_id=perfil.usuario.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Enviar Solicitud de Amistad</button>
+                    </form>
+                {% else %}
+                    <!-- Es amigo, muestra el dropdown -->
+                    <div class="dropdown mt-2">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Amigos
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{% url 'ver_perfil' usuario_id=perfil.usuario.id %}">Visitar Perfil</a></li>
+                            <li>
+                                <!-- Trigger button for modal -->
+                                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Eliminar Amigo</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Modal HTML -->
+                    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ¿Estás seguro de que deseas eliminar a {{ perfil.usuario.nombre_usuario }} de tus amigos?
+                                </div>
+                                <div class="modal-footer">
+                                    <form method="post" action="{% url 'eliminar_amigo' usuario_id=perfil.usuario.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% else %}
+                <p>Ya has enviado una solicitud de amistad a {{ perfil.usuario.nombre_usuario }}.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="text-left mt-4">
+        <h5>Biografía</h5>
+        <p>{{ perfil.biografia }}</p>
+    </div>
+</div>
+{% endblock %}
