@@ -50,10 +50,14 @@
                         <button type="submit" class="btn btn-secondary">Rechazar Solicitud de Amistad</button>
                     </form>
                 {% else %}
-                    <form method="post" action="{% url 'enviar_solicitud' usuario_id=perfil.usuario.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary">Enviar Solicitud de Amistad</button>
-                    </form>
+                    {% if perfil.usuario.id %}
+                        <form method="post" action="{% url 'enviar_solicitud' usuario_id=perfil.usuario.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Enviar Solicitud de Amistad</button>
+                        </form>
+                    {% else %}
+                        <p>No se puede enviar la solicitud de amistad porque no se encontró el ID de usuario.</p>
+                    {% endif %}
                 {% endif %}
             {% endif %}
         </div>

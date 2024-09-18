@@ -100,7 +100,9 @@ class PerfilUsuario(models.Model):
     foto_portada = models.ImageField(upload_to='portadas/', blank=True, null=True)
 
     def __str__(self):
-        return self.usuario.username
+        #return self.usuario.username
+    # Cambiar 'username' por 'nombre_usuario' ya que 'username' no existe
+        return self.usuario.nombre_usuario
 
     def cantidad_amigos(self):
         return self.amigos.count()

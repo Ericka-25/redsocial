@@ -9,7 +9,7 @@
 /* Fondo general */
 body {
     background-color: #3E2723; /* Fondo marrón oscuro */
-    color: #FFFFFF; /* Texto blanco */
+    color: #fcf8f8; /* Texto blanco */
 }
 
 /* Estilos para los enlaces de navegación */
@@ -49,11 +49,11 @@ body {
 
 /* Contenedor principal */
 .container {
-    background-color: #4E342E; /* Fondo marrón oscuro para los contenedores */
+    background-color:  #a0827c; /* Fondo marrón oscuro para los contenedores */
     border-radius: 10px; /* Curvatura en los bordes */
     padding: 20px;
     margin-top: 20px;
-    color: #FFFFFF; /* Texto blanco dentro del contenedor */
+    color: #ffffff; /* Texto blanco dentro del contenedor */
 }
 
 /* Estilos para los alertas */
@@ -89,4 +89,9 @@ footer {
     padding: 10px;
     background-color: #5D4037;
     color: #FFD54F;
+}
+body .list-group-item {
+    background-color: #80605a !important; /* Color de fondo marrón oscuro */
+    color: #fbfbfb !important; /* Color de texto rojo */
+    border: 1px solid #6D4C41 !important; /* Borde marrón */
 }
