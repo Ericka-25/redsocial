@@ -1,0 +1,90 @@
+1. ¿Qué es Python?
+Python es un lenguaje de programación interpretado, de alto nivel y de propósito general. Fue diseñado para ser fácil de leer y escribir, con una sintaxis clara y sencilla. Python es conocido por su versatilidad, y se usa ampliamente en desarrollo web, ciencia de datos, automatización, inteligencia artificial, entre otros.
+
+2. Variables
+Las variables en Python se usan para almacenar datos. No es necesario declarar su tipo explícitamente; Python lo infiere según el valor asignado.
+
+Ejemplo:
+
+
+x = 5       # variable entera
+nombre = "Ana"  # variable de cadena
+
+3. Bucles
+Los bucles permiten repetir un bloque de código varias veces. Los principales bucles en Python son:
+
+Bucle for: Se utiliza para iterar sobre secuencias (listas, cadenas, etc.).
+
+
+for i in range(5):
+    print(i)
+Bucle while: Repite un bloque de código mientras una condición sea verdadera.
+
+python
+Copiar código
+contador = 0
+while contador < 5:
+    print(contador)
+    contador += 1
+
+4. Condicionales
+Permiten ejecutar bloques de código en función de si una condición es verdadera o falsa.
+
+if: Ejecuta el bloque si la condición es verdadera.
+elif: Ejecuta si la condición anterior fue falsa y esta es verdadera.
+else: Se ejecuta si todas las condiciones anteriores son falsas.
+Ejemplo:
+
+
+edad = 18
+if edad >= 18:
+    print("Eres mayor de edad")
+else:
+    print("Eres menor de edad")
+
+5. Operadores matemáticos y de comparación
+Operadores matemáticos: Permiten realizar operaciones aritméticas.
+
+Suma: +
+Resta: -
+Multiplicación: *
+División: /
+División entera: //
+Módulo (resto de división): %
+Exponenciación: **
+
+Ejemplo:
+
+resultado = 10 + 5  # resultado es 15
+Operadores de comparación: Compara dos valores y devuelve un valor booleano (verdadero o falso).
+
+Igual a: ==
+Diferente de: !=
+Mayor que: >
+Menor que: <
+Mayor o igual que: >=
+Menor o igual que: <=
+
+Ejemplo:
+
+5 > 3  # True
+
+6. Arrays (listas)
+En Python, las listas son colecciones de elementos que pueden contener cualquier tipo de dato y son modificables (mutables). Las listas se definen usando corchetes [].
+Ejemplo:
+
+numeros = [1, 2, 3, 4, 5]
+print(numeros[0])  # Accede al primer elemento
+numeros.append(6)  # Añade un nuevo elemento
+7. Métodos básicos de listas
+append(): Agrega un elemento al final de la lista.
+remove(): Elimina la primera aparición de un valor específico.
+pop(): Elimina el elemento en una posición específica (o el último si no se especifica).
+sort(): Ordena la lista en orden ascendente.
+len(): Retorna el número de elementos en la lista.
+Ejemplo:
+
+
+colores = ['rojo', 'verde', 'azul']
+colores.append('amarillo')  # Añade 'amarillo' a la lista
+print(len(colores))  # Devuelve 4

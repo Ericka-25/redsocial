@@ -1,0 +1,67 @@
+1. ¿Qué es Django?
+Django es un framework web de alto nivel para Python que permite desarrollar aplicaciones web rápidamente con un diseño limpio y escalable. Es un framework full-stack, lo que significa que incluye todo lo necesario para desarrollar un sitio web: un sistema de autenticación, gestión de bases de datos, manejo de formularios, plantillas, etc. Fue diseñado para facilitar el desarrollo rápido de aplicaciones, con un enfoque en la simplicidad y reutilización del código.
+
+2. ¿Para qué sirve Django?
+Django se utiliza para crear aplicaciones web dinámicas y seguras. Es ideal para proyectos que requieren escalar con rapidez, como:
+
+Sitios de redes sociales
+E-commerce
+Sistemas de gestión de contenido (CMS)
+Plataformas de aprendizaje en línea
+Aplicaciones complejas de gestión de datos
+3. Partes que conforman un proyecto en Django
+Un proyecto Django se compone de varias partes clave que permiten la organización del código y la separación de responsabilidades:
+
+Proyecto Django: Es el contenedor global que puede tener múltiples aplicaciones. Se crea al iniciar un nuevo proyecto con el comando django-admin startproject <nombre_del_proyecto>.
+
+Aplicaciones Django: Son componentes reutilizables de funcionalidad dentro de un proyecto. Cada aplicación se enfoca en una parte específica del sitio web, como la gestión de usuarios, artículos de blog, productos, etc. Se crean con python manage.py startapp <nombre_de_la_aplicación>.
+
+Un proyecto Django típicamente incluye los siguientes archivos y carpetas:
+
+settings.py: Contiene todas las configuraciones del proyecto (base de datos, rutas, aplicaciones instaladas, etc.).
+urls.py: Define las rutas o "URLs" que direccionan las peticiones a las vistas adecuadas.
+views.py: Contiene las funciones o clases que controlan la lógica del lado del servidor y responden a las solicitudes HTTP.
+models.py: Define los modelos que representan la estructura de datos, por ejemplo, las tablas de la base de datos.
+admin.py: Configura la interfaz de administración para manejar fácilmente los datos a través del sitio de administración de Django.
+4. El uso de Jinja (Django Templates)
+Django usa su propio motor de plantillas, que se basa en el sistema de plantillas Jinja (con ligeras diferencias). Estas plantillas permiten insertar dinámicamente contenido en las páginas HTML, facilitando la reutilización de código y la separación entre la lógica de backend y el frontend.
+
+Dentro de una plantilla, se pueden usar etiquetas como:
+
+Variables: Se inyectan dentro de plantillas usando dobles llaves {{ variable }}.
+Bloques de control: Se usan para crear estructuras de control como bucles y condicionales {% if %} ... {% endif %} o {% for %} ... {% endfor %}.
+Ejemplo:
+<h1>{{ titulo }}</h1>
+<p>Hola, {{ usuario.nombre }}!</p>
+
+5. Archivos manejados en un proyecto Django
+Algunos archivos comunes que se manejan dentro de un proyecto Django son:
+
+manage.py: Archivo de comandos que te permite interactuar con el proyecto Django mediante comandos en la terminal, como ejecutar el servidor, migrar bases de datos, crear aplicaciones, etc.
+
+settings.py: Como se mencionó antes, almacena la configuración global del proyecto. Aquí se configuran aspectos como:
+
+Base de datos
+Middlewares
+Aplicaciones instaladas
+Configuración de archivos estáticos y media
+6. Statics
+Los archivos estáticos son aquellos que no cambian (CSS, JavaScript, imágenes, fuentes). En Django, estos archivos se colocan en una carpeta llamada static/ dentro de cada aplicación o en una carpeta global del proyecto. Estos archivos se referencian en las plantillas de la siguiente manera:
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+Los archivos estáticos son gestionados por Django durante el desarrollo y pueden ser recolectados para un despliegue en producción usando el comando collectstatic.
+
+7. Media
+Los archivos media son aquellos que los usuarios pueden subir a la aplicación, como fotos de perfil, documentos, etc. Django almacena estos archivos en una carpeta llamada media/. En el archivo settings.py, debes definir las rutas para los archivos media:
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+<img src="{{ usuario.foto.url }}" alt="Foto de perfil">
+
+8. Otros archivos importantes
+migrations/: Cada aplicación tiene una carpeta de migraciones que guarda los archivos necesarios para realizar cambios en la base de datos (basados en los modelos definidos).
+forms.py: Puedes definir formularios para manejar la entrada del usuario de una manera más limpia.
+tests.py: Archivo en el que puedes definir pruebas para asegurar el correcto funcionamiento del código.
