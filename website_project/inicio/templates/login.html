@@ -12,7 +12,14 @@
             <label for="contrasena">Contraseña:</label>
             <input type="password" class="form-control" id="contrasena" name="contrasena" required>
         </div>
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <!-- Contenedor para ambos botones, para que estén alineados -->
+        <div class="d-flex justify-content-start">
+            <!-- Botón Ingresar -->
+            <button type="submit" class="btn" style="background-color: #6D4C41; color: #FFFFFF;">Ingresar</button>
+
+            <!-- Botón para ir al registro -->
+            <a href="{% url 'registro_usuario' %}" class="btn" style="background-color: #6D4C41; color: #FFFFFF; margin-left: 10px;">Registrarse</a>
+        </div>
     </form>
 </div>
 {% endblock %}
